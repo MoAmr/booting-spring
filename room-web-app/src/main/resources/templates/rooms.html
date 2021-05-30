@@ -12,7 +12,7 @@
             <th>Bed Info</th>
         </tr>
         <tr th:each="room:${rooms}">
-            <td th:text="${room.number}">Number</td>
+            <td th:text="${room.id}">Number</td>
             <td th:text="${room.name}">Name</td>
             <td th:text="${room.info}">Info</td>
         </tr>
