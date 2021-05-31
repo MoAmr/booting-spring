@@ -1,4 +1,4 @@
-package com.springboot.bootingweb.roomwebapp.models;
+package com.springboot.bootingweb.clr.roomclr;
 
 /**
  * @author Mohammed Amr
@@ -52,5 +52,15 @@ public class Room {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", name='" + name + '\'' +
+                ", info='" + info + '\'' +
+                '}';
     }
 }
