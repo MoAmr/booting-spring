@@ -1,9 +1,9 @@
 package com.springboot.bootingweb.roomwebapp.service;
 
+import com.springboot.bootingweb.roomwebapp.data.RoomRepository;
 import com.springboot.bootingweb.roomwebapp.models.Room;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,15 +15,13 @@ import java.util.List;
 @Service
 public class RoomService {
 
-    private static final List<Room> rooms = new ArrayList<>();
+    private final RoomRepository roomRepository;
 
-    static {
-        for (int i = 0; i < 10; i++) {
-            rooms.add(new Room(i, "Room " + i, "R" + i, "Q"));
-        }
+    public RoomService(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
     }
 
     public List<Room> getAllRooms() {
-        return rooms;
+        return roomRepository.findAll();
     }
 }

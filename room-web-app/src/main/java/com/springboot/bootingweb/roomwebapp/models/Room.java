@@ -1,15 +1,29 @@
 package com.springboot.bootingweb.roomwebapp.models;
 
+import javax.persistence.*;
+
 /**
  * @author Mohammed Amr
  * @created 31/05/2021 - 01:37
  * @project booting-web
  */
+
+@Entity
+@Table(name = "ROOM")
 public class Room {
 
+    @Id
+    @Column(name = "ROOM_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "ROOM_NUMBER")
     private String number;
+
+    @Column(name = " NAME")
     private String name;
+
+    @Column(name = "BED_INFO")
     private String info;
 
     public Room() {
