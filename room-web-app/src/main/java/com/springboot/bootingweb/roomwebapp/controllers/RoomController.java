@@ -1,6 +1,7 @@
 package com.springboot.bootingweb.roomwebapp.controllers;
 
 import com.springboot.bootingweb.roomwebapp.models.Room;
+import com.springboot.bootingweb.roomwebapp.service.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,17 +20,15 @@ import java.util.List;
 @RequestMapping("/rooms")
 public class RoomController {
 
-    private static final List<Room> rooms = new ArrayList<>();
+    private final RoomService roomService;
 
-    static {
-        for (int i = 0; i < 18; i++) {
-            rooms.add(new Room(i, "Room " + i, "R" + i, "Q"));
-        }
+    public RoomController(RoomService roomService) {
+        this.roomService = roomService;
     }
 
     @GetMapping
     public String getAllRooms(Model model) {
-        model.addAttribute("rooms", rooms);
+        model.addAttribute("rooms", roomService.getAllRooms());
         return "rooms";
     }
 }
